@@ -1,5 +1,6 @@
 package com.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +9,9 @@ import java.util.ArrayList;
 
 @RestController
 public class SimpleController {
+
+    @Autowired
+    DataRepository dataRepository;
 
     @RequestMapping("/printText")
     public String zwrocNapis(){
@@ -26,7 +30,7 @@ public class SimpleController {
     }
 
     @RequestMapping("/printData")
-    public Iterable<Data> printData(@RequestParam Integer no){
+    public Iterable<Data> printData(@RequestParam(name = "no",required = false,defaultValue = "5") Integer no){
         ArrayList<Data> data = new ArrayList<>();
 
         for(int i=0;i<no;i++){

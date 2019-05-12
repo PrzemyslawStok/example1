@@ -1,6 +1,13 @@
 package com.spring;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Data {
+    @Id
+    @GeneratedValue
     Integer id;
 
     private Double X;
