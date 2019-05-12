@@ -43,6 +43,11 @@ public class SimpleController {
 
         return data;
     }
+
+    @RequestMapping("/printDatabase")
+    public Iterable<Data> printDatabase(){
+        return dataRepository.findAll();
+    }
 }
 
 
