@@ -35,6 +35,8 @@ public class NextController {
         model.addAttribute("x",point.getX());
         model.addAttribute("y",point.getY());
 
+        model.addAttribute("dataTable",data);
+
         return "printDatabaseHtml";
     }
 }
