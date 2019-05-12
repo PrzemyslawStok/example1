@@ -44,6 +44,19 @@ public class SimpleController {
         return data;
     }
 
+    @RequestMapping("/addData")
+    public Iterable<Data> addData(@RequestParam Double x, @RequestParam Double y){
+
+        Data data = new Data();
+
+        data.setX(x);
+        data.setY(y);
+
+        dataRepository.save(data);
+
+        return dataRepository.findAll();
+    }
+
     @RequestMapping("/printDatabase")
     public Iterable<Data> printDatabase(){
         return dataRepository.findAll();
