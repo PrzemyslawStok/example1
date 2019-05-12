@@ -29,7 +29,11 @@ public class NextController {
 
     @GetMapping("/printDatabaseHtml")
     public String printDatabase(Model model){
+        Iterable<Data> data = dataRepository.findAll();
+        Data point = data.iterator().next();
 
+        model.addAttribute("x",point.getX());
+        model.addAttribute("y",point.getY());
 
         return "printDatabaseHtml";
     }

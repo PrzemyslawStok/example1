@@ -7,5 +7,23 @@
 <body>
 <p th:text="'X, ' + ${x}" />
 <p th:text="'Y, ' + ${y}" />
+
+<table>
+    <thead>
+    <tr>
+        <th> X </th>
+        <th> Y </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${dataTable.empty}">
+        <td colspan="2"> No data to display</td>
+    </tr>
+    <tr th:each="data :${dataTable}">
+        <td><span th:text="${data.X}">X</span></td>
+        <td><span th:text="${data.Y}">Y</span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
