@@ -13,6 +13,9 @@ public class Data {
     private Double X;
     private Double Y;
 
+    private Double Humidity;
+    private Double Temperature;
+
     public void setX(Double x){
         X = x;
     }
@@ -27,6 +30,22 @@ public class Data {
 
     public Double getY(){
         return Y;
+    }
+
+    public void setHumidity(Double humidity){
+        Humidity = humidity;
+    }
+
+    public void setTemperature(Double temperature){
+        Temperature = temperature;
+    }
+
+    public Double getHumidity(){
+        return Humidity;
+    }
+
+    public Double getTemperature(){
+        return Temperature;
     }
 
 }

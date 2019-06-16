@@ -45,9 +45,21 @@ public class SimpleController {
     }
 
     @RequestMapping("/dodajZestawDanych")
-    public String dodajZestawDanych(){
+    public Iterable<Data> dodajZestawDanych(@RequestParam(required = false,defaultValue = "10") Integer no){
 
-        return "Dodano dane";
+        for(int i=0;i<10;i++){
+            Data data = new Data();
+
+            data.setX(Math.abs(Math.random()*100));
+            data.setY(Math.abs(Math.random()*100));
+
+            data.setTemperature(Math.abs(Math.random()*100));
+            data.setHumidity(Math.abs(Math.random()*100));
+
+            dataRepository.save(data);
+        }
+
+        return dataRepository.findAll();
     }
 
     @RequestMapping("/addData")
