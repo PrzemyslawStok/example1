@@ -44,8 +44,14 @@ public class SimpleController {
         return data;
     }
 
+    @RequestMapping("/dodajZestawDanych")
+    public String dodajZestawDanych(){
+
+        return "Dodano dane";
+    }
+
     @RequestMapping("/addData")
-    public Iterable<Data> addData(@RequestParam Double x, @RequestParam Double y){
+    public String addData(@RequestParam Double x, @RequestParam Double y){
 
         Data data = new Data();
 
@@ -54,7 +60,7 @@ public class SimpleController {
 
         dataRepository.save(data);
 
-        return dataRepository.findAll();
+        return "Dane zostały zapisane.";
     }
 
     @RequestMapping("/printDatabase")
